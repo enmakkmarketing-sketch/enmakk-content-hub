@@ -1,0 +1,39 @@
+name: Publish ENMAKK Site
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v1
+
+      - name: Build Static Site
+        run: |
+          mkdir public
+          cp -r articles public/
+          cp -r assets public/
+          cp README.md public/index.md
+
+      - name: Upload Artifact
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: public
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+
+    steps:
+      - name: Deploy Site
+        uses: actions/deploy-pages@v2
