@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ page.title }} | ENMAKK</title>
+    <link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+
+<header class="header">
+    <img src="/assets/images/enmakk-logo.png" class="logo">
+    <nav>
+        <a href="/">Home</a>
+        <a href="/articles/upvc">uPVC</a>
+        <a href="/articles/aluminium">Aluminium</a>
+        <a href="/articles/hardware">Hardware</a>
+        <a href="/articles/fabrication">Fabrication</a>
+    </nav>
+</header>
+
+<main class="content">
+    {{ content }}
+</main>
+
+<footer class="footer">
+    ENMAKK © {{ site.time | date: "%Y" }} | uPVC & Aluminium Systems, Hardware & Gaskets
+</footer>
+
+</body>
+</html>
